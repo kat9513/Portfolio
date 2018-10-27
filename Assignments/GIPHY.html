@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ARTISTS</title>
+    <style type="text/css">
+        button,
+        div,
+        form,
+        input {
+          margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Artist Search</h1>
+
+        <!-- buttons will go here-->
+        <div id="artist-view"></div>
+        
+        
+        <form id="aritist-form">
+            <label for="artist-input">Add an Artist, Yo!</label>
+            <input type="text" id="artist-input"><br>
+      
+           <!-- Button triggers new movie to be added -->
+            <input id="add-artist" type="submit" value="Add a Artist, Yo!">
+        </form>
+
+        <!-- gifs will go here-->
+        <div id="images"></div>
+
+
+        <!--JAVASCRIPT-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        //Initial array of artists
+        
+
+        var artists =["Frida Kahlo", "Andy Warhol", "Pablo Picasso", "Davinci"];
+        
+        // Function to render artist buttons
+        function renderButtons() {
+            $("#artist-view").empty();
+            for(var i = 0; i < artists.length; i++){
+                var a = $("<button>");
+                a.addClass("artist");
+                a.attr("data-name", artists[i]);
+                a.attr("id", artists[i]);
+                a.text(artists[i]);
+                a.on("click", buildQueryURL);
+                $("#artist-view").append(a);
+                //console.log(artists[i]);
+            }
+            console.log(artists[artists.length-1]);
+        }
+
+        // This function handles events where one button is clicked
+        $("#add-artist").on("click", function(event){
+            event.preventDefault();
+            var artist = $("#artist-input").val().trim();
+            artists.push(artist);
+            renderButtons();
+        });
+
+        //renders original buttons in string
+        renderButtons();
+
+
+        //pulls info pertaining to buttons fcrom GIPHY
+        
+        //$(".artist").on("click", 
+        function buildQueryURL(){
+            var person = $(this).attr("data-name");
+            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+            person + "&api_key=HW001x5ThLAgTcKJvnK6crmBCL0oLJVQ";
+            
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+                .then(function(response){
+                    var results = response.data;
+                    for(var i = 0; i < results.length; i++) {
+                        if (results[i].rating !== "r") {
+                        // Creating a div for the gif
+                        var gifDiv = $("<div>");
+                        var rating = results[i].rating;
+                        var p = $("<p>").text("Rating: " + rating);
+                        // Creating an image tag
+                        var personImage = $("<img>");
+
+                        // Giving the image tag an src attribute of a proprty pulled off the
+                        // result item
+                        personImage.attr("data-state", "still");
+                        personImage.attr("src", results[i].images.fixed_height_still.url);
+                        personImage.attr("data-still", results[i].images.fixed_height_still.url)
+                        personImage.attr("data-animated", results[i].images.fixed_height.url)
+                        // Appending the paragraph and personImage we created to the "gifDiv" div we created
+                        personImage.on("click", changeState);
+                        
+                        gifDiv.append(p);
+                        gifDiv.append(personImage);
+
+                         // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+                        $("#images").prepend(gifDiv);
+                            
+                        
+                    }
+
+                }
+
+            });
+
+            //console.log(person);
+        }//);
+        
+        function changeState(){
+            var state = $(this).attr("data-state");
+
+            if(state === "still"){
+                $(this).attr("data-state", "animated");
+                $(this).attr("src", $(this).attr("data-animated"));
+            } else {
+                $(this).attr("data-state", "still");
+                $(this).attr("src", $(this).attr("data-still"));
+            }
+        };
+
+    
+        
+        </script>
+
+    </div>
+    
+</body>
+</html>
