@@ -23,7 +23,7 @@ h1 {
 }
 
 /* media queries*/
-@media screen and (max-width: 1024px) {
+/*@media screen and (max-width: 1024px) {
     body{
         background-color: green;
     }
@@ -45,4 +45,4 @@ h1 {
         display: block;
         width: 100%; 
         }
-}
+}*/
