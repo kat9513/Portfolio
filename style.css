@@ -3,7 +3,7 @@ body {
     font-size: 18px;
     line-height: 34px;
     color: #777777;
-    background: url(assets/light-grey-terrazzo.png);
+    /*background: url(assets/light-grey-terrazzo.png);*/
   }
 
 
@@ -20,4 +20,29 @@ h1 {
 
 .col-sm-8 {
     background: white;
+}
+
+/* media queries*/
+@media screen and (max-width: 1024px) {
+    body{
+        background-color: green;
+    }
+    .navbar-brand{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-nav{
+        display: block;
+        width: 100%; 
+    }
+}
+@media screen and (max-width: 768px) {
+    body{
+        background-color: orange;
+    }
+        .navbar-nav{
+        display: block;
+        width: 100%; 
+        }
 }
