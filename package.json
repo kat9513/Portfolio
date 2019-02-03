@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/kat9513/kat9513.github.io.git"
   },
-  "author": "",
+  "author": "katie higgins",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kat9513/kat9513.github.io/issues"
@@ -20,5 +20,9 @@
   "dependencies": {
     "express": "^4.16.4",
     "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "10.15.0"
   }
 }
