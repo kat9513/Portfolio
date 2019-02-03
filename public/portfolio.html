@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Portfolio | Katie Higgins</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="#">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Katie Higgins</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="/">About <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="/portfolio">Portfolio</a>
+                        <a class="nav-item nav-link" href="/contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- where our portfolio cards will go -->
+    <div class="container portfolioWork">
+
+    </div>
+
+    <div class="footer navbar-fixed-bottom">
+        <p class="footer-text text-center">Copyright 2019©</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        jQuery.get("/api/projects", function (data) {
+            console.log(data);
+            renderCard(data);
+        });
+
+        //for loop to dynamically create html script
+            
+        //Method to createCard object for projects to go into
+        function renderCard(data){
+        
+        $(".portfolioWork").empty();
+
+        for (var i = 0; i < data.length; i++) {
+
+            var card = $("<div>");
+
+                // Change the CSS to maintain an aspect ratio for the images
+                card.addClass("card mx-auto");
+            
+            var title = $("<h1>").text(data[i].title);
+            
+                title.appendTo(card); 
+                title.addClass("text-center");   
+
+            var image = $("<img>");
+            
+                image.addClass("img-thumbnail");
+                image.attr("src", data[i].img)
+                .attr("title", data[i].title)
+                .appendTo(card);
+
+            var githublinks = $("<a>");
+
+                githublinks.addClass("text-center");
+                githublinks.attr("href", data[i].gitHub);
+                githublinks.text("GitHub Repo");
+                githublinks.appendTo(card);
+
+
+            card.appendTo(".portfolioWork");
+            
+        }
+    };    
+        
+    </script>
+
+
+</body>
+
+</html>
