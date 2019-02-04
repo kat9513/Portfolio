@@ -7,13 +7,13 @@
     <title>Portfolio | Katie Higgins</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="#">
+    <link type="text/css" href="/public/assets/style.css">
 </head>
 
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Katie Higgins</a>
+            <a class="navbar-brand" href="/">Katie Higgins</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -68,10 +68,12 @@
 
             var image = $("<img>");
             
-                image.addClass("img-thumbnail");
+                image.addClass("rounded mx-auto d-block");
                 image.attr("src", data[i].img)
                 .attr("title", data[i].title)
                 .appendTo(card);
+            
+
 
             var githublinks = $("<a>");
 
@@ -80,6 +82,12 @@
                 githublinks.text("GitHub Repo");
                 githublinks.appendTo(card);
 
+            var activeLinks = $("<a>");
+
+                activeLinks.addClass("text-center");
+                activeLinks.attr("href", data[i].link);
+                activeLinks.text("Live Link");
+                activeLinks.appendTo(card);
 
             card.appendTo(".portfolioWork");
             

@@ -13,23 +13,30 @@ var PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static('public'));
+app.use(express.static('public/'));
 
 
 var projects = [
     {   
         id: 1,
-        img: "assets/images/crystal-collector.png",
+        img: "assets/images/crystal.png",
         title: "Crystal Collector",
         gitHub: "https://github.com/kat9513/Crystal-Game",
         link: "https://kat9513.github.io/Crystal-Game/index.html",
     },
     {
         id: 2,
-        img: "assets/images/crystal-collector.png",
-        title: "Crystal Collector",
-        gitHub: "https://github.com/kat9513/Crystal-Game",
-        link: "https://kat9513.github.io/Crystal-Game/index.html",
+        img: "assets/images/aggretsuko.png",
+        title: "Trivia Game",
+        gitHub: "https://github.com/kat9513/TriviaGame",
+        link: "https://kat9513.github.io/TriviaGame/",
+    },
+    {
+        id: 3,
+        img: "assets/images/GeoCuisine.png",
+        title: "GeoCuisine",
+        gitHub: "https://github.com/kat9513/fixingProject1",
+        link: "https://kat9513.github.io/fixingProject1/",
     }
 ];
 
