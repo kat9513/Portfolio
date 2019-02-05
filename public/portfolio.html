@@ -28,10 +28,11 @@
         </nav>
 
         <!-- where our portfolio cards will go -->
-        <div class="container portfolioWork">
+        <div class = "card-group">
+            <div class="container portfolioWork">
 
-        </div>
-
+            </div>
+        </div>    
         <div class="footer navbar-fixed-bottom">
             <p class="footer-text text-center">Copyright 2019©</p>
         </div>
@@ -60,7 +61,7 @@
                 var card = $("<div>");
 
                 // Change the CSS to maintain an aspect ratio for the images
-                card.addClass("card mx-auto");
+                card.addClass("card");
 
                 var title = $("<h1>").text(data[i].title);
 
