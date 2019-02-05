@@ -37,6 +37,13 @@ var projects = [
         title: "GeoCuisine",
         gitHub: "https://github.com/kat9513/fixingProject1",
         link: "https://kat9513.github.io/fixingProject1/",
+    },
+    {
+        id: 4,
+        img: "assets/images/crystal.png",
+        title: "Eat Da Burger",
+        gitHub: "https://github.com/kat9513/burger",
+        link: "https://tranquil-island-56945.herokuapp.com/burgers",
     }
 ];
 
