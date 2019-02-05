@@ -7,11 +7,11 @@
     <title>Portfolio | Katie Higgins</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link type="text/css" href="/public/assets/style.css">
+    <link href="assets/custom.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
+    <div class="container container-card">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">Katie Higgins</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -20,20 +20,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="/">About <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="/portfolio">Portfolio</a>
-                        <a class="nav-item nav-link" href="/contact">Contact</a>
+                    <a class="nav-item nav-link active" href="/">About <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/portfolio">Portfolio</a>
+                    <a class="nav-item nav-link" href="/contact">Contact</a>
                 </div>
             </div>
         </nav>
-    </div>
-    <!-- where our portfolio cards will go -->
-    <div class="container portfolioWork">
 
-    </div>
+        <!-- where our portfolio cards will go -->
+        <div class="container portfolioWork">
 
-    <div class="footer navbar-fixed-bottom">
-        <p class="footer-text text-center">Copyright 2019©</p>
+        </div>
+
+        <div class="footer navbar-fixed-bottom">
+            <p class="footer-text text-center">Copyright 2019©</p>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
@@ -48,52 +49,52 @@
         });
 
         //for loop to dynamically create html script
-            
+
         //Method to createCard object for projects to go into
-        function renderCard(data){
-        
-        $(".portfolioWork").empty();
+        function renderCard(data) {
 
-        for (var i = 0; i < data.length; i++) {
+            $(".portfolioWork").empty();
 
-            var card = $("<div>");
+            for (var i = 0; i < data.length; i++) {
+
+                var card = $("<div>");
 
                 // Change the CSS to maintain an aspect ratio for the images
                 card.addClass("card mx-auto");
-            
-            var title = $("<h1>").text(data[i].title);
-            
-                title.appendTo(card); 
-                title.addClass("text-center");   
 
-            var image = $("<img>");
-            
+                var title = $("<h1>").text(data[i].title);
+
+                title.appendTo(card);
+                title.addClass("text-center");
+
+                var image = $("<img>");
+
                 image.addClass("rounded mx-auto d-block");
                 image.attr("src", data[i].img)
-                .attr("title", data[i].title)
-                .appendTo(card);
-            
+                    .attr("title", data[i].title)
+                    .appendTo(card);
 
 
-            var githublinks = $("<a>");
+
+                var githublinks = $("<a>");
 
                 githublinks.addClass("text-center");
                 githublinks.attr("href", data[i].gitHub);
                 githublinks.text("GitHub Repo");
                 githublinks.appendTo(card);
 
-            var activeLinks = $("<a>");
+                var activeLinks = $("<a>");
 
                 activeLinks.addClass("text-center");
                 activeLinks.attr("href", data[i].link);
                 activeLinks.text("Live Link");
                 activeLinks.appendTo(card);
 
-            card.appendTo(".portfolioWork");
-            
-        }
-    };    
-        
+                card.appendTo(".portfolioWork");
+
+            }
+        };
+
     </script>
 
 
