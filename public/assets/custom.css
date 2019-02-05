@@ -1,3 +1,7 @@
 .container-card {
     background: url("images/skulls.png") !important;
 }
+.portfolioImage{
+    max-width: 100%;
+    height: auto;
+}
