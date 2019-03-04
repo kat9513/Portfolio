@@ -2,6 +2,6 @@ body {
     background: url("images/skulls.png") !important;
 }
 .my-face, .portfolioImage{
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
 }
