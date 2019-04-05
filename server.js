@@ -40,10 +40,17 @@ var projects = [
     },
     {
         id: 4,
-        img: "assets/images/crystal.png",
+        img: "assets/images/burger.png",
         title: "Eat Da Burger",
         gitHub: "https://github.com/kat9513/burger",
         link: "https://tranquil-island-56945.herokuapp.com/burgers",
+    },
+    {
+        id: 5,
+        img: "assets/images/psychic.png",
+        title: "Psychic Game",
+        gitHub: "https://github.com/kat9513/Psychic-Game",
+        link: "https://kat9513.github.io/Psychic-Game/",
     }
 ];
 
