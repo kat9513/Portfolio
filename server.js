@@ -51,6 +51,13 @@ var projects = [
         title: "Psychic Game",
         gitHub: "https://github.com/kat9513/Psychic-Game",
         link: "https://kat9513.github.io/Psychic-Game/",
+    },
+    {
+        id: 6,
+        img: "assets/images/Artsy.png",
+        title: "Artsy!",
+        gitHub: "https://github.com/kat9513/GIPHY_APP",
+        link: "https://kat9513.github.io/GIPHY_APP/",
     }
 ];
 
