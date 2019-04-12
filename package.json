@@ -19,7 +19,8 @@
   "homepage": "https://github.com/kat9513/kat9513.github.io#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {},
   "engines": {

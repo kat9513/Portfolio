@@ -1,7 +1,11 @@
 body {
     background: url("images/skulls.png") !important;
 }
+.card{
+    background: none;
+    border: none;
+}
 .my-face, .portfolioImage{
-    max-width: 50%;
-    height: auto;
+    max-width: 25%;
+    margin: auto;
 }
